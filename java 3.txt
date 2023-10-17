@@ -1,0 +1,36 @@
+import java.util.*;
+public class PangramChecker {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in); 
+        String input =sc.next();
+        boolean isPangram = isPangram(input);
+        
+        if (isPangram) {
+            System.out.println("The input is a pangram.");
+        } else {
+            System.out.println("The input is not a pangram.");
+        }
+    }
+
+    public static boolean isPangram(String input) {
+        boolean[] alphabet = new boolean[26]; 
+
+        for (char c : input.toLowerCase().toCharArray()) {
+            if (c >= 'a' && c <= 'z') {
+                alphabet[c - 'a'] = true; 
+            }
+        }
+
+       
+        for (boolean present : alphabet) {
+            if (!present) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+    }
+}
